@@ -1,12 +1,9 @@
 const express = require('express');
-const app = express();
-const path = require('path');
+const router = express.Router();
 
-// Set the view engine to EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Define routes
-app.get('/', (req, res) => {
+// GET home page
+router.get('/', (req, res, next) => {
     res.render('index', { title: 'Pepper Site' });
 });
+
+module.exports = router;
