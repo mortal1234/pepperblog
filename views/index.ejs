@@ -7,10 +7,14 @@
     body {
       margin: 0;
       padding: 0;
+      background-image: url('/images/bg.png');
+      background-size: cover;
     }
     .menu {
-      background-color: #f5f5f5;
+      background-color: #FF4500;
       padding: 10px;
+      display: flex;
+      align-items: center;
     }
     .menu ul {
       list-style-type: none;
@@ -23,19 +27,186 @@
     }
     .menu a {
       text-decoration: none;
-      color: #333;
+      color: #fff;
+    }
+    .menu .logo {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    .menu .logo span {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: bold;
+    }
+    .menu .logo img {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .menu .about-button {
+      margin-right: 10px;
+    }
+    .menu .about-button a {
+      color: #fff;
+      cursor: pointer;
+    }
+    .menu .icons {
+      display: flex;
+      align-items: center;
+    }
+    .menu .icons a {
+      margin-left: 10px;
+    }
+    .menu .icons img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) saturate(100%) invert(39%) sepia(99%) saturate(3167%) hue-rotate(342deg) brightness(108%) contrast(100%);
+    }
+    .content {
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .content h2 {
+      margin-bottom: 10px;
+    }
+    .content p {
+      margin-top: 0;
+    }
+    .popup-container {
+      position: fixed;
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 800px; /* Limit the width of the popup container */
+      height: 90vh; /* Limit the height of the popup container */
+      overflow-y: auto; /* Enable vertical scrolling */
+      background-color: #ffD; /* Set the background color to white */
+      color: #000; /* Text color set to black */
+      border: 2px solid #FF4500;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+    }
+    .popup .menu-bar {
+      background-color: #111;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .popup .menu-bar span {
+      color: #fff;
+      font-weight: bold;
+      margin-right: auto;
+      cursor: pointer;
+    }
+    .popup .header {
+      display: flex;
+      align-items: center;
+    }
+    .popup .header img {
+      width: 33%; /* Set the headshot width to 33% of the popup width */
+      max-width: 200px; /* Limit the headshot size */
+      margin-right: 10px;
+    }
+    .popup .resume-section {
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    .popup .resume-section h3 {
+      margin-bottom: 10px;
+    }
+    .popup .resume-section p {
+      margin-top: 0;
     }
   </style>
 </head>
 <body>
   <div class="menu">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
+    <div class="logo">
+      <span>Peppers Galore!</span>
+    </div>
+    <div class="logo">
+      <a href="/">
+        <img src="/images/pepper-logo.png" alt="Pepper Logo">
+      </a>
+    </div>
+    <div class="icons">
+      <div class="about-button">
+        <a onclick="openPopup()">About</a>
+      </div>
+      <a href="mailto:willpybus4@gmail.com">
+        <img src="/images/email-icon.png" alt="Email Icon">
+      </a>
+      <a href="https://www.linkedin.com/in/will-pybus/" target="_blank">
+        <img src="/images/linkedin-icon.png" alt="LinkedIn Icon">
+      </a>
+    </div>
   </div>
-  <h1>Welcome to the <%= title %>!</h1>
-  <p>Explore the wonderful world of peppers.</p>
+
+  <div id="popup" class="popup" style="display: none;">
+    <div class="menu-bar">
+      <span onclick="closePopup()">&lt;BACK</span>
+    </div>
+     <div class="header">
+    <img src="/images/headshot.jpg" alt="Headshot" style="float: left; margin-right: 10px;">
+    <h2>William Pybus</h2>
+    <p><strong>Location:</strong> Houston, Texas, United States</p>
+    <p><strong>Email:</strong> willpybus4@gmail.com</p>
+  </div>
+
+    <div class="summary">
+      <h3>Summary</h3>
+      <p>I have been coding C++ since I was 12 years old. I am making a transition from coding and IT into the cybersecurity field and am learning Rust in advance to keep up with the current trend. I am familiar with technical support and have previously set up and programmed workstations for engineers. My first computer was Linux, then I moved to a MacBook, and now I use Windows most often, but I still keep up to date on manipulating Linux systems.</p>
+    </div>
+
+    <div class="experience">
+      <h3>Experience</h3>
+      <h4>Coding Instructor</h4>
+      <p><strong>CCCedutech</strong></p>
+      <p>Sep 2022 - May 2023 (9 months)</p>
+      <p>Teach children afterschool about a variety of STEM subjects such as biology, coding, and assist with instructing courses in botany and gardening.</p>
+
+      <h4>Coding Tutor</h4>
+      <p><strong>IDEA Lab Kids</strong></p>
+      <p>Aug 2020 - Aug 2022 (2 years 1 month)</p>
+      <p>Instruct children on campus in science, coding, modding, and graphic design. Also worked onsite at Awty International School as an afterschool instructor, taught basic engineering, robotics, general science, and C++.</p>
+
+      <h4>Full Unit Repair Technician</h4>
+      <p><strong>CSAT Solutions LP</strong></p>
+      <p>Jan 2020 - Apr 2020 (4 months)</p>
+      <p>Performed troubleshooting and repair of model a1286 MacBooks.</p>
+    </div>
+
+    <div class="education">
+      <h3>Education</h3>
+      <p><strong>The University of Texas at Austin</strong></p>
+      <p>Cybersecurity Certification Course</p>
+      <p>Mar 2023 - Sep 2023</p>
+    </div>
+
+    <div class="skills">
+      <h3>Skills</h3>
+      <p>Node.js • Ethical Hacking • Penetration Testing • VMware • Cybersecurity • Chemistry • Microsoft Excel • Troubleshooting • Computer Repair • Power Tools</p>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
 </body>
 </html>
